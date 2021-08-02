@@ -2,7 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   creationTimestamp: null
-  name: web-contents
+  name: {{ include "tempchart.fullname" . }}
+  labels:
+  {{- include "tempchart.labels" . | nindent 4 }}
 data:
   index.html: |
     <!doctype html>
